@@ -1,3 +1,45 @@
+.numbers{
+  float:right;
+  font-size: 20px;
+}
+.numbers span{
+  font-weight: bold;
+  font-size: 32px;
+  text-align: right;
+}
+.card {background: #FFF none repeat scroll 0% 0%;
+    justify-content: space-around;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+border:1px solid #333333;
+border-radius: 10px;
+min-width: 200px;
+ margin-bottom: 30px;
+ padding:10px;
+  }
+
+.card {background: #FFF none repeat scroll 0% 0%;
+    justify-content: space-around;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+border:1px solid #333333;
+border-radius: 10px;
+min-width: 200px;
+ margin-bottom: 30px;
+ padding:10px;
+  }
+ 
+.container-fluid {
+  min-height: 600px;
+  height: auto;
+  justify-content: space-around;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
 .nav-bg{
     background: #333333;
     color:white;
