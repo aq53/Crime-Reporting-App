@@ -1,20 +1,19 @@
 import React from 'react';
-// import total from '.././images/total2.png';
 import total from '.././images/total1.png';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 class Total extends React.Component {
     render() {
-        var totalRep=()=>{
-            var {reports,selectedArea}=this.props;
-            var count=0;
-            if(selectedArea==='')
-                count=0;
-            for(var i=0;i<reports.length;i++){
-                if(reports[i].area===selectedArea){
-                     ++count;
+        var totalRep = () => {
+            var { reports, selectedArea } = this.props;
+            var count = 0;
+            if (selectedArea === '')
+                count = 0;
+            for (var i = 0; i < reports.length; i++) {
+                if (reports[i].area === selectedArea) {
+                    ++count;
                 }
             }
-             return count;
+            return count;
         }
         return (
             /*total div starts here */
@@ -46,10 +45,10 @@ class Total extends React.Component {
 }
 
 export default connect(
-    (state)=>{
+    (state) => {
         return {
-            reports : state.reports,
-            selectedArea:state.selectedArea
+            reports: state.reports,
+            selectedArea: state.selectedArea
         }
     }
 )(Total);

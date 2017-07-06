@@ -21,12 +21,12 @@ class FilterReport extends React.Component {
             repType: 'all',
             area: ''
         };
-        this.handleAreaChange=this.handleAreaChange.bind(this);
+        this.handleAreaChange = this.handleAreaChange.bind(this);
         // this.handleTypeChange=this.handleTypeChange.bind(this);
-}
-handleAreaChange(e) {
+    }
+    handleAreaChange(e) {
         this.setState({ area: e.target.value })
-} 
+    }
     render() {
         var renderReports = () => {
             var { reports, dispatch } = this.props;
@@ -40,15 +40,14 @@ handleAreaChange(e) {
             }
             return ReportApi.filterReports(reports, area, repType).map((report) => {
                 // console.log(ReportApi.filterReports(reports, area, repType))
-                 return(
+                return (
                     <div className="report-body" key={report.id}>
                         <h4>{report.reportedBy}</h4>
-                        {/*<h4>Abdul Qadir</h4>*/}
                         {repType === "all" ? <h5><b>Type:</b> {report.repType}</h5> : null}
-                        
-                            <b>Title:</b> {report.title} <br />
-                            <p><b>Description:</b> {report.desc}</p>
-                        
+
+                        <b>Title:</b> {report.title} <br />
+                        <p><b>Description:</b> {report.desc}</p>
+
                     </div>
                 )
             });
@@ -73,18 +72,18 @@ handleAreaChange(e) {
                 </select><br />
                 <Tabs
                     value={this.state.repType}
-                    //onTouchTap={this.handleTypeChange}
+                //onTouchTap={this.handleTypeChange}
                 >
-                    <Tab label="All" value='all' onClick={()=>{this.setState({repType:'all'})}}  >
+                    <Tab label="All" value='all' onClick={() => { this.setState({ repType: 'all' }) }}  >
                         <div className='tabs-div'>{renderReports()}</div>
                     </Tab>
-                    <Tab label="Crime" value='Crime' onClick={()=>{this.setState({repType:'Crime'})}} >
+                    <Tab label="Crime" value='Crime' onClick={() => { this.setState({ repType: 'Crime' }) }} >
                         <div className='tabs-div'>{renderReports()}</div>
                     </Tab>
-                    <Tab label="Missing" value='Missing' onClick={()=>{this.setState({repType:'Missing'})}} >
+                    <Tab label="Missing" value='Missing' onClick={() => { this.setState({ repType: 'Missing' }) }} >
                         <div className='tabs-div'>{renderReports()}</div>
                     </Tab>
-                    <Tab label='Complaint' value='Complaint' onClick={()=>{this.setState({repType:'Complaint'})}} >
+                    <Tab label='Complaint' value='Complaint' onClick={() => { this.setState({ repType: 'Complaint' }) }} >
                         <div className='tabs-div'>{renderReports()}</div>
                     </Tab>
                 </Tabs>

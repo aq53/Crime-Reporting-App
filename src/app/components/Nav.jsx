@@ -9,7 +9,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import firebase from '.././firebase.js';
 import { hashHistory } from 'react-router';
 import * as actions from '.././actions.jsx';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 class Nav extends React.Component {
     constructor(props) {
         super(props);
@@ -24,29 +24,27 @@ class Nav extends React.Component {
     renderSignUp() {
         hashHistory.push("/signup");
     }
-    renderMain(){
+    renderMain() {
         hashHistory.push('/');
     }
     handleToggle = () => {
         this.setState({ open: !this.state.open });
     }
     render() {
-        var {dispatch,userInfo}=this.props;
-        var userName=()=>{
-            var message="Welcome ";
-            var name =userInfo.name;
+        var { dispatch, userInfo } = this.props;
+        var userName = () => {
+            var message = "Welcome ";
+            var name = userInfo.name;
             // console.log(name);
             // console.log(userInfo.email);
             return (
-            <div className="iconElement">
-                {message}
-            <b>{name}</b>
-            {/*<b>Abdul Qadir</b>*/}
-            </div>);
-};
+                <div className="iconElement">
+                    {message}
+                    <b>{name}</b>
+                </div>);
+        };
         return (
             <div>
-                {/*{dispatch(actions.startAddReports())}*/}
                 <AppBar
                     title={<span className='AppBar-title'>Crime Reporting App</span>
                     }
@@ -55,15 +53,17 @@ class Nav extends React.Component {
                             <img src={menu} alt="Menu" className='App-logo' />
                         </IconButton>
                     }
-                    iconElementRight={firebase.auth().currentUser?userName() :
+                    iconElementRight={firebase.auth().currentUser ? userName() :
                         <div className='iconElement'>
-                            Created by <a href="https://github.com/aq53" target="_blank">Abdul Qadir</a>
+                            Created by <a href="https://github.com/aq53" target="_blank"
+                            rel="noopener noreferrer" 
+                            >Abdul Qadir</a>
                         </div>
                     }
                     showMenuIconButton={true}
                 />
                 <Drawer width={250}
-                disableSwipeToOpen	={false}
+                    disableSwipeToOpen={false}
                     onRequestChange={(open) => this.setState({ open })}
                     docked={false} open={this.state.open} >
                     <AppBar
@@ -73,22 +73,22 @@ class Nav extends React.Component {
                     {
                         !firebase.auth().currentUser ?
                             <div>
-                                <MenuItem onClick={this.renderMain}>Dashboard</MenuItem>
+                                <MenuItem style={{ color: '#333333' }} onClick={this.renderMain}>Dashboard</MenuItem>
                                 <Divider />
-                                <MenuItem onClick={this.renderSignIn}>Sign In</MenuItem>
+                                <MenuItem style={{ color: '#333333' }} onClick={this.renderSignIn}>Sign In</MenuItem>
                                 <Divider />
-                                <MenuItem onClick={this.renderSignUp}>Sign Up</MenuItem>
+                                <MenuItem style={{ color: '#333333' }} onClick={this.renderSignUp}>Sign Up</MenuItem>
                                 <Divider /></div> :
                             <div>
-                                <MenuItem onClick={this.renderMain}>Dashboard</MenuItem>
+                                <MenuItem style={{ color: '#333333' }} onClick={this.renderMain}>Dashboard</MenuItem>
                                 <Divider />
-                                <MenuItem onClick={()=>{hashHistory.push('/FileReport')}}>File a Report</MenuItem>
+                                <MenuItem style={{ color: '#333333' }} onClick={() => { hashHistory.push('/FileReport') }}>File a Report</MenuItem>
                                 <Divider />
-                                <MenuItem onClick={()=>{
+                                <MenuItem style={{ color: '#333333' }} onClick={() => {
                                     dispatch(actions.startLogout());
                                     hashHistory.push('/');
-                                    this.setState({open:false})
-                                    }} >Sign Out</MenuItem>
+                                    this.setState({ open: false })
+                                }} >Sign Out</MenuItem>
                                 <Divider />
                             </div>}
 
@@ -99,9 +99,9 @@ class Nav extends React.Component {
 }
 
 export default connect(
-    (state)=>{
+    (state) => {
         return {
-            userInfo:state.userInfo
+            userInfo: state.userInfo
         };
-    }    
+    }
 )(Nav);

@@ -1,21 +1,20 @@
 import React from 'react';
-// import crime from '.././images/crime2.png';
 import crime from '.././images/crime1.png';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class Crime extends React.Component {
     render() {
-        var totalCrimeRep=()=>{
-            var {reports,selectedArea}=this.props;
-            var count=0;
-            if(selectedArea==='')
-                count=0;
-            for(var i=0;i<reports.length;i++){
-                if(reports[i].area===selectedArea && reports[i].repType==='Crime'){
-                     ++count;
+        var totalCrimeRep = () => {
+            var { reports, selectedArea } = this.props;
+            var count = 0;
+            if (selectedArea === '')
+                count = 0;
+            for (var i = 0; i < reports.length; i++) {
+                if (reports[i].area === selectedArea && reports[i].repType === 'Crime') {
+                    ++count;
                 }
             }
-             return count;
+            return count;
         }
         return (
             /*Crime div starts here */
@@ -46,10 +45,10 @@ class Crime extends React.Component {
     }
 }
 export default connect(
-    (state)=>{
+    (state) => {
         return {
-            reports : state.reports,
-            selectedArea:state.selectedArea
+            reports: state.reports,
+            selectedArea: state.selectedArea
         }
     }
 )(Crime);

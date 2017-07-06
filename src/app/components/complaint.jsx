@@ -1,22 +1,20 @@
 import React from 'react';
-// import complaint from '.././images/complaint2.png';
 import complaint from '.././images/complaint1.png';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class Complaint extends React.Component {
     render() {
-        
-        var totalComplaintRep=()=>{
-            var {reports,selectedArea}=this.props;
-            var count=0;
-            if(selectedArea==='')
-                count=0;
-            for(var i=0;i<reports.length;i++){
-                if(reports[i].area===selectedArea && reports[i].repType==='Complaint'){
-                     ++count;
+        var totalComplaintRep = () => {
+            var { reports, selectedArea } = this.props;
+            var count = 0;
+            if (selectedArea === '')
+                count = 0;
+            for (var i = 0; i < reports.length; i++) {
+                if (reports[i].area === selectedArea && reports[i].repType === 'Complaint') {
+                    ++count;
                 }
             }
-             return count;
+            return count;
         }
         return (
             /*complaint div starts here */
@@ -48,10 +46,10 @@ class Complaint extends React.Component {
 }
 
 export default connect(
-    (state)=>{
+    (state) => {
         return {
-            reports : state.reports,
-            selectedArea:state.selectedArea
+            reports: state.reports,
+            selectedArea: state.selectedArea
         }
     }
 )(Complaint);

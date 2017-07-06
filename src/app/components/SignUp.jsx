@@ -1,22 +1,18 @@
 import React from 'react';
 import * as actions from '../actions.jsx';
-// import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router';
 import Nav from './Nav.jsx';
-// import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-// import TextField from 'material-ui/TextField';
 
 class SignUp extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(e) {
         e.preventDefault();
-       var {dispatch} = this.props;
-       var name = this.refs.name.value;
+        var { dispatch } = this.props;
+        var name = this.refs.name.value;
         var email = this.refs.email.value;
         var password = this.refs.password.value;
         var rePassword = this.refs.rePassword.value;
@@ -25,7 +21,7 @@ class SignUp extends React.Component {
             console.log('Password mismatch');
         }
         else {
-            dispatch(actions.startCreateUser(name,email, password));
+            dispatch(actions.startCreateUser(name, email, password));
             this.refs.name.value = '';
             this.refs.email.value = '';
             this.refs.password.value = '';

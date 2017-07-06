@@ -1,20 +1,20 @@
 import React from 'react';
-// import missing from '.././images/missing2.png';
 import missing from '.././images/missing1.png';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
 class Missing extends React.Component {
     render() {
-        var totalMissingRep=()=>{
-            var {reports,selectedArea}=this.props;
-            var count=0;
-            if(selectedArea==='')
-                count=0;
-            for(var i=0;i<reports.length;i++){
-                if(reports[i].area===selectedArea && reports[i].repType==='Missing'){
-                     ++count;
+        var totalMissingRep = () => {
+            var { reports, selectedArea } = this.props;
+            var count = 0;
+            if (selectedArea === '')
+                count = 0;
+            for (var i = 0; i < reports.length; i++) {
+                if (reports[i].area === selectedArea && reports[i].repType === 'Missing') {
+                    ++count;
                 }
             }
-             return count;
+            return count;
         }
         return (
             /*missing div starts here */
@@ -45,10 +45,10 @@ class Missing extends React.Component {
     }
 }
 export default connect(
-    (state)=>{
+    (state) => {
         return {
-            reports : state.reports,
-            selectedArea:state.selectedArea
+            reports: state.reports,
+            selectedArea: state.selectedArea
         }
     }
 )(Missing);

@@ -20,7 +20,7 @@ class Main extends React.Component {
                                     <Crime />
                                     <Missing />
                                     <Complaint />
-                                    <FilterReport/>
+                                    <FilterReport />
                                 </div>
                             </div>
                         </div>

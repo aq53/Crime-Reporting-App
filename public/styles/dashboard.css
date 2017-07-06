@@ -1917,7 +1917,7 @@ pre code {
   }
 }
 .container-fluid {
-  min-height: 900px;
+  min-height: 600px;
   height: auto;
   justify-content: space-around;
   padding-right: 15px;

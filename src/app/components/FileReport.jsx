@@ -2,8 +2,6 @@ import React from 'react';
 import * as actions from '.././actions.jsx';
 import { connect } from 'react-redux';
 import Nav from './Nav.jsx';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
 
 class FileReport extends React.Component {
     constructor(props) {
@@ -21,18 +19,18 @@ class FileReport extends React.Component {
         var { area } = this.state;
         var title = this.refs.title.value;
         var desc = this.refs.desc.value;
-        var { dispatch,user } = this.props;
-        var reportedBy=user.name;
+        var { dispatch, user } = this.props;
+        var reportedBy = user.name;
         if ((repType === '' || repType === '0') || (area === '' || area === '0')) {
             alert('Please insert all fields correctly');
         } else {
-            dispatch(actions.startFileReport(repType, area, title, desc,reportedBy));
+            dispatch(actions.startFileReport(repType, area, title, desc, reportedBy));
             this.setState({
-                repType:'',
-                area:'',
+                repType: '',
+                area: '',
             });
-            this.refs.title.value='';
-            this.refs.desc.value='';
+            this.refs.title.value = '';
+            this.refs.desc.value = '';
         }
     }
     render() {
@@ -48,9 +46,9 @@ class FileReport extends React.Component {
                                     <form onSubmit={this.handleSubmit}>
                                         <div className="form-group">
                                             <label>Report Type</label>
-                                            <select className="form-control form-control-selectpicker" 
-                                            value={this.state.repType}
-                                            onChange={(e)=>{this.setState({repType:e.target.value})}} >
+                                            <select className="form-control form-control-selectpicker"
+                                                value={this.state.repType}
+                                                onChange={(e) => { this.setState({ repType: e.target.value }) }} >
                                                 <option value="0">Type</option>
                                                 <option value="Crime">Crime</option>
                                                 <option value="Missing">Missing</option>
@@ -60,9 +58,9 @@ class FileReport extends React.Component {
                                         </div>
                                         <div className="form-group">
                                             <label>Area</label>
-                                            <select className="form-control form-control-selectpicker" 
-                                            value={this.state.area}
-                                            onChange={(e)=>{this.setState({area:e.target.value})}} >
+                                            <select className="form-control form-control-selectpicker"
+                                                value={this.state.area}
+                                                onChange={(e) => { this.setState({ area: e.target.value }) }} >
                                                 <option value="0">Select any City</option>
                                                 <option value="Karachi">Karachi</option>
                                                 <option value="Lahore">Lahore</option>
@@ -108,9 +106,9 @@ class FileReport extends React.Component {
 }
 
 export default connect(
-    (state)=>{
-        return{
-            user:state.userInfo
+    (state) => {
+        return {
+            user: state.userInfo
         }
     }
 )(FileReport);
