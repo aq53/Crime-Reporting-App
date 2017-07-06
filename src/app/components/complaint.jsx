@@ -1,4 +1,5 @@
 import React from 'react';
+// import complaint from '.././images/complaint2.png';
 import complaint from '.././images/complaint1.png';
 import {connect} from 'react-redux';
 

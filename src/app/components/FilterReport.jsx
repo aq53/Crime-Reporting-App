@@ -33,11 +33,7 @@ handleAreaChange(e) {
             var { area } = this.state;
             var { repType } = this.state;
             dispatch(actions.getSelArea(area));
-            if (reports.length === 0) {
-                return (
-                    <h3>No reports available</h3>
-                );
-            } else if (area === '' || area === "0") {
+            if (area === '' || area === "0") {
                 return (
                     <h3>Please select any city</h3>
                 );
@@ -47,6 +43,7 @@ handleAreaChange(e) {
                  return(
                     <div className="report-body" key={report.id}>
                         <h4>{report.reportedBy}</h4>
+                        {/*<h4>Abdul Qadir</h4>*/}
                         {repType === "all" ? <h5><b>Type:</b> {report.repType}</h5> : null}
                         
                             <b>Title:</b> {report.title} <br />

@@ -1,4 +1,5 @@
 import React from 'react';
+// import missing from '.././images/missing2.png';
 import missing from '.././images/missing1.png';
 import {connect} from 'react-redux';
 class Missing extends React.Component {

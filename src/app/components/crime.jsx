@@ -1,4 +1,5 @@
 import React from 'react';
+// import crime from '.././images/crime2.png';
 import crime from '.././images/crime1.png';
 import {connect} from 'react-redux';
 

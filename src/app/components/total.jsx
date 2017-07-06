@@ -1,4 +1,5 @@
 import React from 'react';
+// import total from '.././images/total2.png';
 import total from '.././images/total1.png';
 import {connect} from 'react-redux';
 class Total extends React.Component {

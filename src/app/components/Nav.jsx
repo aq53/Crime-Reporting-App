@@ -41,6 +41,7 @@ class Nav extends React.Component {
             <div className="iconElement">
                 {message}
             <b>{name}</b>
+            {/*<b>Abdul Qadir</b>*/}
             </div>);
 };
         return (
