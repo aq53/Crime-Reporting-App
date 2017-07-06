@@ -5,9 +5,12 @@ import Total from './total.jsx';
 import Missing from './missing.jsx';
 import Complaint from './complaint.jsx';
 import FilterReport from './FilterReport.jsx';
+import {connect} from 'react-redux';
+import * as actions from '../actions.jsx';
 
 class Main extends React.Component {
     render() {
+        var {dispatch}= this.props;
         return (
             <div>
                 <Nav />
@@ -32,4 +35,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+export default connect()(Main);

@@ -23,7 +23,6 @@ export var addRepReducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD_REPORTS':
             return [
-                ...state,
                 ...action.reports
             ];
         default:

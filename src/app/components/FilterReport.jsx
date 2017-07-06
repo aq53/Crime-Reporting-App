@@ -22,7 +22,6 @@ class FilterReport extends React.Component {
             area: ''
         };
         this.handleAreaChange = this.handleAreaChange.bind(this);
-        // this.handleTypeChange=this.handleTypeChange.bind(this);
     }
     handleAreaChange(e) {
         this.setState({ area: e.target.value })
@@ -41,7 +40,7 @@ class FilterReport extends React.Component {
             return ReportApi.filterReports(reports, area, repType).map((report) => {
                 // console.log(ReportApi.filterReports(reports, area, repType))
                 return (
-                    <div className="report-body" key={report.id}>
+                    <div className="report-body">
                         <h4>{report.reportedBy}</h4>
                         {repType === "all" ? <h5><b>Type:</b> {report.repType}</h5> : null}
 
@@ -72,7 +71,6 @@ class FilterReport extends React.Component {
                 </select><br />
                 <Tabs
                     value={this.state.repType}
-                //onTouchTap={this.handleTypeChange}
                 >
                     <Tab label="All" value='all' onClick={() => { this.setState({ repType: 'all' }) }}  >
                         <div className='tabs-div'>{renderReports()}</div>
