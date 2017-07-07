@@ -1,5 +1,5 @@
 import firebase, { firebaseRef } from './firebase.js';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 export var getSelArea = (area) => {
     return {
@@ -17,7 +17,7 @@ export var addReports = (reports) => {
 export var startAddReports = () => {
     return (dispatch, getState) => {
         var reportRef = firebaseRef.child('reports');
-        return reportRef.once('value').then((snapshot) => {
+        return reportRef.on('value',(snapshot) => {
             var reports = snapshot.val() || {};
             var parsedReports = [];
             Object.keys(reports).forEach((reportId) => {
@@ -75,7 +75,7 @@ export var startLogin = (email, password) => {
     return (dispatch, getState) => {
         firebase.auth().signInWithEmailAndPassword(email, password).then((result) => {
             console.log('logged in');
-            hashHistory.push('/')
+            browserHistory.push('/')
         }, (error) => {
             console.log('unable to login');
         });
@@ -96,7 +96,7 @@ export var startCreateUser = (name, email, password) => {
                 //     ...user,
                 //     id:uid
                 // }));
-                hashHistory.push('/login');
+                browserHistory.push('/login');
             });
         }, (error) => {
             alert('Unable to create user')

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { hashHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../actions.jsx';
 import Nav from './Nav.jsx';

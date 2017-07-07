@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router, IndexRoute, hashHistory } from 'react-router';
+import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 
 import Main from './components/Main.jsx';
 import Login from './components/Login.jsx';
@@ -45,7 +45,7 @@ var redirectIfLoggedIn = (nextState, replace, next) => {
 
 export default (
     <MuiThemeProvider muiTheme={muiTheme}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path="/" component={Main}/>
             <Route path="login" component={Login} onEnter={redirectIfLoggedIn}/>
             <Route path="signup" component={SignUp} onEnter={redirectIfLoggedIn}/>

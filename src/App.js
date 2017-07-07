@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as actions from './app/actions.jsx';
 import { Provider } from 'react-redux';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import firebase from './app/firebase.js';
 import router from './app/router.jsx';
 
@@ -15,7 +15,7 @@ store.dispatch(actions.getUserInfo());
     
   }else {
         store.dispatch(actions.logout());
-        hashHistory.push('/');
+        browserHistory.push('/');
 
     }
 });

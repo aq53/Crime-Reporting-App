@@ -7,7 +7,7 @@ import menu from '.././images/menu.png';
 import Divider from 'material-ui/Divider';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import firebase from '.././firebase.js';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import * as actions from '.././actions.jsx';
 import { connect } from 'react-redux';
 class Nav extends React.Component {
@@ -18,14 +18,14 @@ class Nav extends React.Component {
         };
     }
     renderSignIn() {
-        hashHistory.push("/login");
+        browserHistory.push("/login");
     }
 
     renderSignUp() {
-        hashHistory.push("/signup");
+        browserHistory.push("/signup");
     }
     renderMain() {
-        hashHistory.push('/');
+        browserHistory.push('/');
     }
     handleToggle = () => {
         this.setState({ open: !this.state.open });
@@ -82,11 +82,11 @@ class Nav extends React.Component {
                             <div>
                                 <MenuItem style={{ color: '#333333' }} onClick={this.renderMain}>Dashboard</MenuItem>
                                 <Divider />
-                                <MenuItem style={{ color: '#333333' }} onClick={() => { hashHistory.push('/FileReport') }}>File a Report</MenuItem>
+                                <MenuItem style={{ color: '#333333' }} onClick={() => { browserHistory.push('/FileReport') }}>File a Report</MenuItem>
                                 <Divider />
                                 <MenuItem style={{ color: '#333333' }} onClick={() => {
                                     dispatch(actions.startLogout());
-                                    hashHistory.push('/');
+                                    browserHistory.push('/');
                                     this.setState({ open: false })
                                 }} >Sign Out</MenuItem>
                                 <Divider />
