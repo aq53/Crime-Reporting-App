@@ -11,7 +11,8 @@ store.dispatch(actions.startAddReports());
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){
     store.dispatch(actions.login(user.uid));
-store.dispatch(actions.getUserInfo());
+    store.dispatch(actions.getUserInfo());
+    browserHistory.push('/');
     
   }else {
         store.dispatch(actions.logout());
